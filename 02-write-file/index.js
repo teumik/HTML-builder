@@ -9,7 +9,7 @@ stdout.write('Enter some text or word: (to see the changes, reopen text.txt)\n')
 stdin.on('data', data => {
   const input = data.toString().trim();
   if (input === 'exit') {
-    stdout.write('Edited end, Bye!\n');
+    stdout.write('Edited is over, Bye!\n');
     process.exit();
   }
   output.write(data);
