@@ -53,12 +53,7 @@ fs.readdir(styles, { withFileTypes: true }, (error, files) => {
 
 // COPY ASSETS FOLDER
 
-fsPromises.rm(destCopy, { recursive: true, force: true }, error => {
-  if (error) {
-    console.error(error.message);
-    exit();
-  }
-}).then(copyStream);
+fsPromises.rm(destCopy, { recursive: true, force: true }).then(copyStream);
 
 function copyStream() {
   fs.mkdir(destCopy, { recursive: true }, error => {
