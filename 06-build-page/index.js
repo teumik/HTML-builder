@@ -133,8 +133,14 @@ inputHtmlStream.on('end', () => {
           exit();
         }
 
-        const regexp = new RegExp(`{{${path.parse(filePath).name}}}`, 'g')
-        html = html.replace(regexp, `${data}`);
+        const regexp = new RegExp(`{{${path.parse(filePath).name}}}`, 'g');
+
+        const tabRegexp = new RegExp(`(?<=\n)(([ \t]+)(?={{${path.parse(filePath).name}}}))`, 'g');
+        const tab = html.match(tabRegexp);
+        const dataArr = data.split('\n');
+        const newData = dataArr.map((el, i) => i !== 0 ? el = '\n' + tab + el : el).join('');
+
+        html = html.replace(regexp, `${newData}`);
 
         if (count === 0) {
           outputHtmlStream.write(html);
