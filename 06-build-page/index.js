@@ -136,6 +136,7 @@ inputHtmlStream.on('end', () => {
         const regexp = new RegExp(`{{${path.parse(filePath).name}}}`, 'g');
 
         const tabRegexp = new RegExp(`(?<=\n)(([ \t]+)(?={{${path.parse(filePath).name}}}))`, 'g');
+        // (?<=\n)(([ \t]*)(?=[<\w\/])) // REGEXP FOR DATA STRING
         const tab = html.match(tabRegexp);
         const dataArr = data.split('\n');
         const newData = dataArr.map((el, i) => i !== 0 ? el = '\n' + tab + el : el).join('');
