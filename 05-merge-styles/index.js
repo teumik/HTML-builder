@@ -21,11 +21,11 @@ fs.readdir(origin, { withFileTypes: true }, (error, files) => {
 
       input.on('data', data => {
         styles += data;
-      })
+      });
 
       input.on('end', () => {
         output.write(`${styles}\n\n`);
-      })
+      });
     }
-  })
-})
+  });
+});

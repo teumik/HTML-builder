@@ -23,8 +23,8 @@ fs.mkdir(copyPath, { recursive: true }, error => {
           console.error(error.message);
           exit();
         }
-      })
-    })
+      });
+    });
 
     fs.readdir(folderPath, { withFileTypes: true }, (error, files) => {
       if (error) {
@@ -40,8 +40,8 @@ fs.mkdir(copyPath, { recursive: true }, error => {
             console.error(error.message);
             exit();
           }
-        })
-      })
-    })
-  })
+        });
+      });
+    });
+  });
 });

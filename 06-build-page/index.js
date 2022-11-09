@@ -50,14 +50,14 @@ function makeBundle() {
 
           input.on('data', data => {
             stylesData += data;
-          })
+          });
 
           input.on('end', () => {
             bundleFile.write(`${stylesData}\n\n`);
-          })
+          });
         }
-      })
-    })
+      });
+    });
 
     // COPY ASSETS FOLDER
 
@@ -83,7 +83,7 @@ function makeBundle() {
                   console.error(error.message);
                   exit();
                 }
-              })
+              });
               deepCopy(newTarget, newDest);
             } else if (file.isFile()) {
               const filePath = path.join(targetCopy, file.name);
@@ -94,14 +94,14 @@ function makeBundle() {
                   console.error(error.message);
                   exit();
                 }
-              })
+              });
             }
-          })
-        })
+          });
+        });
       }
 
       deepCopy(targetCopy, destCopy);
-    })
+    });
 
     // HTML
 
@@ -113,7 +113,7 @@ function makeBundle() {
 
     inputHtmlStream.on('data', data => {
       html += data.toString();
-    })
+    });
 
     inputHtmlStream.on('end', () => {
       fs.readdir(components, { withFileTypes: true }, (error, files) => {
@@ -147,10 +147,10 @@ function makeBundle() {
               count--;
             }
           });
-        })
-      })
-    })
+        });
+      });
+    });
 
-  })
+  });
 
 }

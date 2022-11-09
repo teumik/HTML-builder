@@ -13,9 +13,9 @@ stdin.on('data', data => {
     process.exit();
   }
   output.write(data);
-})
+});
 
 process.on('SIGINT', () => {
   stdout.write('\nEdited is over, Bye!\n');
   process.exit();
-})
+});

@@ -12,4 +12,4 @@ read.on('end', () => {
 read.on('error', error => {
   stdout.write(error.message);
   stdout.write('\n');
-})
+});

@@ -27,10 +27,10 @@ function fileLog(folderPath) {
             `${path.parse(newPath).name} - ${path.parse(newPath).ext.slice(1)} - ${stats.size / 1024}kb`
           );
           stdout.write('\n');
-        })
+        });
       }
-    })
-  })
+    });
+  });
 }
 
 fileLog(folderPath);
